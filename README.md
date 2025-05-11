@@ -1,6 +1,4 @@
----
 
-```markdown
 # 🐳 Simple Docker App – kalkivartha/docker_sample_code
 
 This repository demonstrates a basic Dockerized full-stack application with separate frontend and backend services. It is ideal for learning and testing Docker, container orchestration with Docker Compose, and full-stack development workflow.
