@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Themed Form</title>
+  <style>
+    body {
+      background-color: #121212;
+      font-family: 'Arial', sans-serif;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #00d4ff;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input {
+      background-color: #2d2d2d;
+      color: #ffffff;
+      border: 1px solid #444;
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: #00d4ff;
+      outline: none;
+    }
+
+    button {
+      background-color: #00d4ff;
+      color: #121212;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #009bb3;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    .form-container {
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Submit Info</h1>
+    <form id="userForm">
+      <input type="text" id="name" placeholder="Enter your name" required><br>
+      <input type="email" id="email" placeholder="Enter your email" required><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      await fetch("http://localhost:3000/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email }),
+      });
+      alert("Submitted successfully!");
+    });
+  </script>
+</body>
+</html>
